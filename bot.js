@@ -10,7 +10,6 @@ let channel;
 
 client.on("message", (msg) => {
   if (msg.content === "hej") {
-    msg.reply("Hej!!");
     const embed = new Discord.MessageEmbed()
       .setColor("#0099ff")
       .setTitle("Lektion")
