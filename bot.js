@@ -31,6 +31,7 @@ let test = new cron.CronJob("* * * * *", () => {
   const embed = new Discord.MessageEmbed()
   .setColor("#0099ff")
   .setTitle("Lektion")
+  channel.send(embed)
 });
 monday.start();
 friday.start();
