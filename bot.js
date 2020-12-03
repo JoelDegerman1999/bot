@@ -10,11 +10,17 @@ let channel;
 
 client.on("message", (msg) => {
   if (msg.content === "hej") {
+    msg.channel.send("@everyone")
     const embed = new Discord.MessageEmbed()
       .setColor("#0099ff")
       .setTitle("Lektion")
-      .setDescription("@everyone Kom ihåg lektionen kl 09.00");
+      .setDescription("Kom ihåg lektionen kl 09.00");
     channel.send(embed);
+  }
+  else if (msg.content === "!clearchat") {
+    msg.channel.fetch().then(result => {
+      msg.channel.bulkDelete(result)
+    })
   }
 });
 
@@ -28,14 +34,17 @@ client.login(process.env.BOT_TOKEN).then(() => {
 });
 
 let monday = new cron.CronJob("50 8 * * 1", () => {
-  channel.send("Kom ihåg lektionen med Ulf kl. 09.00");
-});
-let friday = new cron.CronJob("50 8 * * 5", () => {
-  channel.send("Kom ihåg lektionen med Ulf kl. 09.00");
-});
-let test = new cron.CronJob("* * * * *", () => {
+  channel.send("@everyone")
   channel.send(embed);
 });
+let friday = new cron.CronJob("50 8 * * 5", () => {
+  channel.send("@everyone")
+  channel.send(embed);
+});
+let test = new cron.CronJob("* * * * *", () => {
+  channel.send("@everyone")
+  channel.send(embed);
+});
+test.start()
 monday.start();
 friday.start();
-test.start();
