@@ -18,6 +18,7 @@ client.on("message", (msg) => {
     channel.send(embed);
   }
   else if (msg.content === "!clearchat") {
+    msg.reply("clearchat")
     msg.channel.messages.fetch().then(result => {
       msg.channel.bulkDelete(result)
     })
