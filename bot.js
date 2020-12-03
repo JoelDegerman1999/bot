@@ -12,11 +12,17 @@ let channel;
 client.on("message", (msg) => {
   if (msg.content === "hej") {
     msg.reply("Hej!!");
+    const embed = new Discord.MessageEmbed()
+  .setColor("#0099ff")
+  .setTitle("Lektion")
+  .setDescription("Kom ihåg lektionen kl 09.00")
+  channel.send(embed)
   }
 });
 
 client.login(process.env.BOT_TOKEN).then(() => {
   channel = client.channels.cache.get("784086230769336353");
+  
 });
 
 let monday = new cron.CronJob("50 8 * * 1", () => {
@@ -31,6 +37,7 @@ let test = new cron.CronJob("* * * * *", () => {
   const embed = new Discord.MessageEmbed()
   .setColor("#0099ff")
   .setTitle("Lektion")
+  .setDescription("Kom ihåg lektionen kl 09.00")
   channel.send(embed)
 });
 monday.start();
