@@ -16,7 +16,7 @@ const embed = new Discord.MessageEmbed()
   .setDescription("Kom ihåg lektionen kl 09.00");
 
 client.login(process.env.BOT_TOKEN).then(() => {
-  channel = client.channels.cache.get("784086230769336353");
+  channel = client.channels.cache.get("613364620639469600");
 });
 
 let monday = new cron.CronJob("50 8 * * 1", () => {
