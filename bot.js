@@ -20,7 +20,7 @@ client.on("message", (msg) => {
   else if (msg.content === "!clearchat") {
     msg.reply("clearchat")
     msg.channel.messages.fetch().then(result => {
-      msg.reply(result)
+      msg.channel.send("hejsan")
       msg.channel.bulkDelete(result)
     })
   }
