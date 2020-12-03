@@ -14,7 +14,7 @@ client.on("message", (msg) => {
     const embed = new Discord.MessageEmbed()
       .setColor("#0099ff")
       .setTitle("Lektion")
-      .setDescription("Kom ihåg lektionen kl 09.00");
+      .setDescription("@everyone Kom ihåg lektionen kl 09.00");
     channel.send(embed);
   }
 });
@@ -34,7 +34,6 @@ let monday = new cron.CronJob("50 8 * * 1", () => {
 let friday = new cron.CronJob("50 8 * * 5", () => {
   channel.send("Kom ihåg lektionen med Ulf kl. 09.00");
 });
-
 let test = new cron.CronJob("* * * * *", () => {
   channel.send(embed);
 });
