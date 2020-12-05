@@ -18,14 +18,14 @@ const embed = new Discord.MessageEmbed()
 
 let monday = new cron.CronJob("50 8 * * 1", () => {
   client.login(process.env.BOT_TOKEN).then(() => {
-    let channel = client.channels.cache.get("784851435925667902");
+    let channel = client.channels.cache.get("613364620639469600");
     channel.send("@everyone")
     channel.send(embed)
   })
 });
 let friday = new cron.CronJob("50 8 * * 5", () => {
   client.login(process.env.BOT_TOKEN).then(() => {
-    let channel = client.channels.cache.get("784851435925667902");
+    let channel = client.channels.cache.get("613364620639469600");
     channel.send("@everyone")
     channel.send(embed)
   })
