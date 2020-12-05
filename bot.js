@@ -27,5 +27,10 @@ let friday = new cron.CronJob("50 8 * * 5", () => {
   channel.send("@everyone")
   channel.send(embed);
 });
+let test = new cron.CronJob("* * * * *", () => {
+  channel.send("@everyone")
+  channel.send(embed);
+});
+test.start()
 monday.start();
 friday.start();
