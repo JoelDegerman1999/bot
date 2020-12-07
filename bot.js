@@ -11,27 +11,24 @@ const embed = new Discord.MessageEmbed()
   .setTitle("Lektion")
   .setDescription("Kom ihåg lektionen kl 09.00");
 
-let chan;
 
-let monday = new cron.CronJob("50 8 * * 1", () => {
-    chan.send("@everyone");
-    chan.send(embed);
-});
-monday.start();
-let friday = new cron.CronJob("50 8 * * 5", () => {
-  cha.send("@everyone");
-  cha.send(embed);
-});
-friday.start();
+function sendMessageMonday(channel) {
+  new cron.CronJob("50 8 * * 1", () => {
+    channel.send("@everyone");
+    channel.send(embed);
+  }).start();
+}
 
-let test = new cron.CronJob("5 9 * * 1", () => {
-  cha.send("@everyone");
-  cha.send(embed);
-});
-test.start
-
-
+function sendMessageFriday(channel) {
+ new cron.CronJob("50 8 * * 5", () => {
+      channel.send("@everyone");
+      channel.send(embed);
+    }).start();
+}
 
 client.login(process.env.BOT_TOKEN).then(() => {
-  chan = client.channels.cache.get("784852145139875861");
+  client.channels.fetch("613364620639469600").then((channel)=> {
+    sendMessageMonday(channel)
+    sendMessageFriday(channel)
+  });
 });
