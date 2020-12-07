@@ -27,7 +27,7 @@ function sendMessageFriday(channel) {
 }
 
 client.login(process.env.BOT_TOKEN).then(() => {
-  client.channels.fetch("613364620639469600").then((channel)=> {
+  client.channels.fetch("784852145139875861").then((channel)=> {
     sendMessageMonday(channel)
     sendMessageFriday(channel)
   });
